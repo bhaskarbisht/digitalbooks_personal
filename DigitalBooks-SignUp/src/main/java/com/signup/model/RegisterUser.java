@@ -13,15 +13,24 @@ public class RegisterUser {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer userId;
 	
+	private Integer signUpAs;
+	
 	private String firstName;
 	
 	private String lastName;
 	
 	private String email;
 	
-	private String userName;
 	
 	private String password;
+
+	public Integer getSignUpAs() {
+		return signUpAs;
+	}
+
+	public void setSignUpAs(Integer signUpAs) {
+		this.signUpAs = signUpAs;
+	}
 
 	public Integer getUserId() {
 		return userId;
@@ -55,14 +64,7 @@ public class RegisterUser {
 		this.email = email;
 	}
 
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-
+	
 	public String getPassword() {
 		return password;
 	}
@@ -71,14 +73,17 @@ public class RegisterUser {
 		this.password = password;
 	}
 
-	public RegisterUser(Integer userId, String firstName, String lastName, String email, String userName,
+	
+	
+
+	public RegisterUser(Integer userId, Integer signUpAs, String firstName, String lastName, String email,
 			String password) {
 		super();
 		this.userId = userId;
+		this.signUpAs = signUpAs;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
-		this.userName = userName;
 		this.password = password;
 	}
 

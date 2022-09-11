@@ -44,8 +44,8 @@ public class BooksServiceImpl implements IBooksService {
 	@Override
 	public List<Books> searchBooks(String category, String authorName, Double price) {
 		List<Books> books = booksrepository.findAll();
-		return books.stream().filter(book -> book.getCategory().equalsIgnoreCase(category) && book.getAuthor().equalsIgnoreCase(authorName)
-				&& book.getPrice().equals(price)).collect(Collectors.toList());
+		return books.stream().filter(book -> book.getCategory().equalsIgnoreCase(category) || book.getAuthor().equalsIgnoreCase(authorName)
+				|| book.getPrice().equals(price)).collect(Collectors.toList());
 
 		
 	}
