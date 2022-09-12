@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.books.exception.ResourceNotFoundException;
 import com.books.model.Books;
 
 @Service
@@ -50,4 +51,26 @@ public class BooksServiceImpl implements IBooksService {
 		
 	}
 
+	@Override
+	public Books updateBook(Books book, Integer id) {
+		Books existingbook = booksrepository.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("Book", "id", id));
+		existingbook.setTitle(book.getTitle());
+		existingbook.setActive(book.getActive());
+		existingbook.setPrice(book.getPrice());
+		existingbook.setPublisher(book.getPublisher());
+		
+
+		booksrepository.save(existingbook);
+		return existingbook;
+	}
+
+	@Override
+	public void deleteBook(Integer id) {
+	 booksrepository.deleteById(id);
+		
+	}
+
+	
+	
 }

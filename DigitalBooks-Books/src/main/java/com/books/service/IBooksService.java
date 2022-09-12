@@ -15,5 +15,10 @@ public interface IBooksService {
 	
 	public List<Books> getBooksByAuthorId(Integer authorId);
 	
+	Books updateBook(Books book, Integer id);
+
+	public void deleteBook(Integer id);
+	
 	public List<Books> searchBooks(String category,String authorName,Double price);
+	
 }
