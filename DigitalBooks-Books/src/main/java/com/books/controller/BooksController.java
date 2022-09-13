@@ -50,7 +50,6 @@ public class BooksController {
 
 		try {
 			// Get the file and save it somewhere
-			System.out.println("seema "+UPLOADED_FOLDER);
 			byte[] bytes = file.getBytes();
 			Path path = Paths
 					.get(UPLOADED_FOLDER + File.separator + "images" + File.separator + file.getOriginalFilename());
@@ -107,6 +106,32 @@ public class BooksController {
 			@RequestParam("price") Double price) {
 		
 		return booksService.searchBooks(category, authorName, price);
+	
+		
+	}
+	
+	
+	
+	@GetMapping("/category/{category}")
+	public List<Books> searchBooksByCategory(@PathVariable String category) {
+		
+		return booksService.searchBooksByCategory(category);
+	
+		
+	}
+	
+	@GetMapping("/author/{author}")
+	public List<Books> searchBooksByAuthor(@PathVariable String author) {
+		
+		return booksService.searchBooksByAuthor(author);
+	
+		
+	}
+	
+	@GetMapping("/price/{price}")
+	public List<Books> searchBooksByAuthor(@PathVariable Double price) {
+		
+		return booksService.searchBooksByPrice(price);
 	
 		
 	}

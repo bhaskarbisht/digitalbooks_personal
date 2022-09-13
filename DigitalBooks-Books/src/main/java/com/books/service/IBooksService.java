@@ -21,4 +21,10 @@ public interface IBooksService {
 	
 	public List<Books> searchBooks(String category,String authorName,Double price);
 	
+	public List<Books> searchBooksByCategory(String category);
+	
+	public List<Books> searchBooksByAuthor(String author);
+
+	public List<Books> searchBooksByPrice(Double price);
+	
 }

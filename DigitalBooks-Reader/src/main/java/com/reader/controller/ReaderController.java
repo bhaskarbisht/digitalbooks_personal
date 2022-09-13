@@ -44,5 +44,40 @@ public class ReaderController {
 	}
 	
 	
+	@GetMapping("/searchCategory/{cat}")
+	public Object searchBooksBycategory(@PathVariable String cat) {
+		
+		String url = "http://books-microservice/category/";
+		
+		Object records= restTemplate.getForObject(url+cat,Object.class );	
+		
+				return records;
+		
+	}
+	
+
+	@GetMapping("/searchAuthor/{author}")
+	public Object searchBooksByAuthor(@PathVariable String author) {
+		
+		String url = "http://books-microservice/author/";
+		
+		Object records= restTemplate.getForObject(url+author,Object.class );	
+		
+				return records;
+		
+	}
+	
+
+	@GetMapping("/searchPrice/{price}")
+	public Object searchBooksByPrice(@PathVariable Double price) {
+		
+		String url = "http://books-microservice/price/";
+		
+		Object records= restTemplate.getForObject(url+price,Object.class );	
+		
+				return records;
+		
+	}
+	
 
 }

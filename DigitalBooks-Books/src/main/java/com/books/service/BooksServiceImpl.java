@@ -71,6 +71,26 @@ public class BooksServiceImpl implements IBooksService {
 		
 	}
 
+	@Override
+	public List<Books> searchBooksByCategory(String category) {
+		List<Books> books = booksrepository.findAll();
+		return books.stream().filter(book->book.getCategory().equalsIgnoreCase(category)).collect(Collectors.toList());
+	}
+
+	@Override
+	public List<Books> searchBooksByAuthor(String author) {
+		
+		List<Books> books = booksrepository.findAll();
+		return books.stream().filter(book->book.getAuthor().equalsIgnoreCase(author)).collect(Collectors.toList());
+	}
+
+	@Override
+	public List<Books> searchBooksByPrice(Double price) {
+		
+		List<Books> books = booksrepository.findAll();
+		return books.stream().filter(book->book.getPrice().equals(price)).collect(Collectors.toList());
+	}
+
 	
 	
 }
