@@ -1,5 +1,6 @@
 package com.books.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -89,6 +90,23 @@ public class BooksServiceImpl implements IBooksService {
 		
 		List<Books> books = booksrepository.findAll();
 		return books.stream().filter(book->book.getPrice().equals(price)).collect(Collectors.toList());
+	}
+
+	@Override
+	public List<Books> purchasedBooks(Integer Id) {
+
+	List<Integer>bookid=booksrepository.findByUserId(Id);
+	List<Books> books =new ArrayList<Books>() ;
+	for(int i=0;i<bookid.size();i++) {
+		
+		Optional<Books>book=booksrepository.findById(bookid.get(i));
+		if(book.isPresent()) {
+			books.add(book.get());
+		}
+	}
+	return books;
+	
+	
 	}
 
 	

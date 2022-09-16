@@ -27,4 +27,6 @@ public interface IBooksService {
 
 	public List<Books> searchBooksByPrice(Double price);
 	
+	public List<Books> purchasedBooks(Integer Id);
+	
 }

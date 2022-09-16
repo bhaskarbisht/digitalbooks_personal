@@ -159,6 +159,12 @@ public class BooksController {
     }
 	
 	
+	@GetMapping("/getPurchase/{id}")
+	public List<Books> getData(@PathVariable Integer id){
+		return booksService.purchasedBooks(id);
+		
+	}
+	
 	
 
 	
