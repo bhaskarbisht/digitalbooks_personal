@@ -49,6 +49,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+		<finalName>Digital-Books-Eureka-Server</finalName>
 	</build>
 
 </project>

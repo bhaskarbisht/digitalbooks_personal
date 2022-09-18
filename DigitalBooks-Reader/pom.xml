@@ -60,6 +60,8 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+				<finalName>Digital-Books-Reader-service</finalName>
+		
 	</build>
 
 	<dependencyManagement>

@@ -60,6 +60,8 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+				<finalName>Digital-Books-SignUp-service</finalName>
+		
 	</build>
 
 	<dependencyManagement>
